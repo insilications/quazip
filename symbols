@@ -118,14 +118,19 @@ libquazip5.so.1:_ZN13QuaZipNewInfoC2ERK7QStringS2_
 libquazip5.so.1:_ZN13QuaZipPrivate21goToFirstUnmappedFileEv
 libquazip5.so.1:_ZN18QuaGzipFilePrivate4openERK7QStringPKc
 libquazip5.so.1:_ZN18QuaGzipFilePrivate4openEiPKc
+libquazip5.so.1:_ZN19QuaZIODevicePrivate5flushEi
 libquazip5.so.1:_ZN19QuaZIODevicePrivate7doFlushER7QString
-libquazip5.so.1:_ZN19QuaZIODevicePrivateC1EP9QIODevice
-libquazip5.so.1:_ZN19QuaZIODevicePrivateC2EP9QIODevice
+libquazip5.so.1:_ZN19QuaZIODevicePrivateC1EP9QIODeviceP12QuaZIODevice
+libquazip5.so.1:_ZN19QuaZIODevicePrivateC2EP9QIODeviceP12QuaZIODevice
 libquazip5.so.1:_ZN19QuaZIODevicePrivateD1Ev
 libquazip5.so.1:_ZN19QuaZIODevicePrivateD2Ev
 libquazip5.so.1:_ZN19QuaZipDirComparator12getExtensionERK7QString
 libquazip5.so.1:_ZN19QuaZipDirComparator14compareStringsERK7QStringS2_
 libquazip5.so.1:_ZN19QuaZipDirComparatorclERK16QuaZipFileInfo64S2_
+libquazip5.so.1:_ZN5QHashI7QString15QHashDummyValueE11deleteNode2EPN9QHashData4NodeE
+libquazip5.so.1:_ZN5QHashI7QString15QHashDummyValueE13duplicateNodeEPN9QHashData4NodeEPv
+libquazip5.so.1:_ZN5QHashI7QString16unz64_file_pos_sE11deleteNode2EPN9QHashData4NodeE
+libquazip5.so.1:_ZN5QHashI7QString16unz64_file_pos_sE13duplicateNodeEPN9QHashData4NodeEPv
 libquazip5.so.1:_ZN6QuaZip10getUnzFileEv
 libquazip5.so.1:_ZN6QuaZip10getZipFileEv
 libquazip5.so.1:_ZN6QuaZip10setCommentERK7QString
@@ -134,9 +139,12 @@ libquazip5.so.1:_ZN6QuaZip11setIoDeviceEP9QIODevice
 libquazip5.so.1:_ZN6QuaZip12goToNextFileEv
 libquazip5.so.1:_ZN6QuaZip13goToFirstFileEv
 libquazip5.so.1:_ZN6QuaZip14setCurrentFileERK7QStringNS_15CaseSensitivityE
+libquazip5.so.1:_ZN6QuaZip14setUtf8EnabledEb
 libquazip5.so.1:_ZN6QuaZip15setCommentCodecEP10QTextCodec
 libquazip5.so.1:_ZN6QuaZip15setCommentCodecEPKc
 libquazip5.so.1:_ZN6QuaZip15setZip64EnabledEb
+libquazip5.so.1:_ZN6QuaZip16getDefaultOsCodeEv
+libquazip5.so.1:_ZN6QuaZip16setDefaultOsCodeEj
 libquazip5.so.1:_ZN6QuaZip16setFileNameCodecEP10QTextCodec
 libquazip5.so.1:_ZN6QuaZip16setFileNameCodecEPKc
 libquazip5.so.1:_ZN6QuaZip22convertCaseSensitivityENS_15CaseSensitivityE
@@ -145,6 +153,7 @@ libquazip5.so.1:_ZN6QuaZip23setDefaultFileNameCodecEPKc
 libquazip5.so.1:_ZN6QuaZip31setDataDescriptorWritingEnabledEb
 libquazip5.so.1:_ZN6QuaZip4openENS_4ModeEP19zlib_filefunc_def_s
 libquazip5.so.1:_ZN6QuaZip5closeEv
+libquazip5.so.1:_ZN6QuaZip9setOsCodeEj
 libquazip5.so.1:_ZN6QuaZipC1EP9QIODevice
 libquazip5.so.1:_ZN6QuaZipC1ERK7QString
 libquazip5.so.1:_ZN6QuaZipC1Ev
@@ -211,6 +220,7 @@ libquazip5.so.1:_ZNK6QuaZip11getIoDeviceEv
 libquazip5.so.1:_ZNK6QuaZip11getZipErrorEv
 libquazip5.so.1:_ZNK6QuaZip11isAutoCloseEv
 libquazip5.so.1:_ZNK6QuaZip12setAutoCloseEb
+libquazip5.so.1:_ZNK6QuaZip13isUtf8EnabledEv
 libquazip5.so.1:_ZNK6QuaZip14hasCurrentFileEv
 libquazip5.so.1:_ZNK6QuaZip14isZip64EnabledEv
 libquazip5.so.1:_ZNK6QuaZip15getCommentCodecEv
@@ -225,6 +235,7 @@ libquazip5.so.1:_ZNK6QuaZip18getCurrentFileNameEv
 libquazip5.so.1:_ZNK6QuaZip30isDataDescriptorWritingEnabledEv
 libquazip5.so.1:_ZNK6QuaZip6isOpenEv
 libquazip5.so.1:_ZNK6QuaZip7getModeEv
+libquazip5.so.1:_ZNK6QuaZip9getOsCodeEv
 libquazip5.so.1:_ZNK9QuaZipDir11nameFiltersEv
 libquazip5.so.1:_ZNK9QuaZipDir13entryInfoListE6QFlagsIN4QDir6FilterEES0_INS1_8SortFlagEE
 libquazip5.so.1:_ZNK9QuaZipDir13entryInfoListERK11QStringList6QFlagsIN4QDir6FilterEES3_INS4_8SortFlagEE
@@ -255,6 +266,7 @@ libquazip5.so.1:unzCloseCurrentFile
 libquazip5.so.1:unzGetCurrentFileInfo
 libquazip5.so.1:unzGetCurrentFileInfo64
 libquazip5.so.1:unzGetCurrentFileZStreamPos64
+libquazip5.so.1:unzGetFileFlags
 libquazip5.so.1:unzGetFilePos
 libquazip5.so.1:unzGetFilePos64
 libquazip5.so.1:unzGetGlobalComment
