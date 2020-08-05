@@ -1,5 +1,5 @@
 PKG_NAME := quazip
-URL = https://github.com/stachenov/quazip/archive/v0.9.1/quazip-0.9.1.tar.gz
+URL = https://github.com/stachenov/quazip.git
 ARCHIVES = 
 
 include ../common/Makefile.common

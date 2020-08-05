@@ -1,2 +1,9 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+findutils
+buildreq-cmake
+buildreq-qmake
+pkg-config
+qtbase-dev
+zlib-dev
+zlib-staticdev
