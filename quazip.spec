@@ -4,10 +4,10 @@
 #
 %define keepstatic 1
 Name     : quazip
-Version  : 0.9
-Release  : 8
-URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
-Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
+Version  : 20.08.05
+Release  : 9
+URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
+Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -58,15 +58,15 @@ staticdev components for the quazip package.
 
 
 %prep
-%setup -q -n quazip-v0.9
-cd %{_builddir}/quazip-v0.9
+%setup -q -n quazip-20.08.05
+cd %{_builddir}/quazip-20.08.05
 
 %build
 unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1596643009
+export SOURCE_DATE_EPOCH=1596643186
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -168,7 +168,7 @@ unset no_proxy
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1596643009
+export SOURCE_DATE_EPOCH=1596643186
 rm -rf %{buildroot}
 pushd clr-build-special
 %make_install_special  || :
@@ -188,36 +188,36 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/QuaZip-Qt5-1.0/quazip/JlCompress.h
-/usr/include/QuaZip-Qt5-1.0/quazip/ioapi.h
-/usr/include/QuaZip-Qt5-1.0/quazip/minizip_crypt.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quaadler32.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quachecksum32.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quacrc32.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quagzipfile.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quaziodevice.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazip.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazip_global.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazipdir.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazipfile.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazipfileinfo.h
-/usr/include/QuaZip-Qt5-1.0/quazip/quazipnewinfo.h
-/usr/include/QuaZip-Qt5-1.0/quazip/unzip.h
-/usr/include/QuaZip-Qt5-1.0/quazip/zip.h
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5Config.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5ConfigVersion.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_StaticTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_StaticTargets.cmake
-/usr/lib64/libquazip1-qt5.so
-/usr/lib64/pkgconfig/quazip1-qt5.pc
+/usr/include/quazip5/quazip/JlCompress.h
+/usr/include/quazip5/quazip/ioapi.h
+/usr/include/quazip5/quazip/minizip_crypt.h
+/usr/include/quazip5/quazip/quaadler32.h
+/usr/include/quazip5/quazip/quachecksum32.h
+/usr/include/quazip5/quazip/quacrc32.h
+/usr/include/quazip5/quazip/quagzipfile.h
+/usr/include/quazip5/quazip/quaziodevice.h
+/usr/include/quazip5/quazip/quazip.h
+/usr/include/quazip5/quazip/quazip_global.h
+/usr/include/quazip5/quazip/quazipdir.h
+/usr/include/quazip5/quazip/quazipfile.h
+/usr/include/quazip5/quazip/quazipfileinfo.h
+/usr/include/quazip5/quazip/quazipnewinfo.h
+/usr/include/quazip5/quazip/unzip.h
+/usr/include/quazip5/quazip/zip.h
+/usr/lib64/cmake/quazip5/quazipConfig.cmake
+/usr/lib64/cmake/quazip5/quazipConfigVersion.cmake
+/usr/lib64/cmake/quazip5/quazip_SharedTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/quazip5/quazip_SharedTargets.cmake
+/usr/lib64/cmake/quazip5/quazip_StaticTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/quazip5/quazip_StaticTargets.cmake
+/usr/lib64/libquazip.so
+/usr/lib64/pkgconfig/quazip.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libquazip1-qt5.so.1.0
-/usr/lib64/libquazip1-qt5.so.1.0.0
+/usr/lib64/libquazip.so.1.0
+/usr/lib64/libquazip.so.1.0.0
 
 %files staticdev
 %defattr(-,root,root,-)
-/usr/lib64/libquazip1-qt5.a
+/usr/lib64/libquazip.a
