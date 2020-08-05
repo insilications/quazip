@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : quazip
 Version  : 0.9
-Release  : 6
+Release  : 7
 URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
 Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
 Summary  : No detailed summary available
@@ -57,7 +57,7 @@ unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1596640870
+export SOURCE_DATE_EPOCH=1596641533
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -91,7 +91,11 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-%cmake ..
+%cmake .. -DQUAZIP_PKGCONFIG_NAME=quazip \
+-DQUAZIP_LIB_FILE_NAME=quazip5 \
+-DQUAZIP_LIB_TARGET_NAME=quazip5 \
+-DQUAZIP_DIR_NAME=quazip \
+-DQUAZIP_PACKAGE_NAME=quazip
 make  %{?_smp_mflags}
 
 make %{?_smp_mflags} check || :
@@ -101,7 +105,11 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-%cmake ..
+%cmake .. -DQUAZIP_PKGCONFIG_NAME=quazip \
+-DQUAZIP_LIB_FILE_NAME=quazip5 \
+-DQUAZIP_LIB_TARGET_NAME=quazip5 \
+-DQUAZIP_DIR_NAME=quazip \
+-DQUAZIP_PACKAGE_NAME=quazip
 make  %{?_smp_mflags}
 popd
 
@@ -113,16 +121,16 @@ unset no_proxy
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1596640870
+export SOURCE_DATE_EPOCH=1596641533
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
 popd
 ## install_append content
 #install -m 0755 pinentry-wrapper %{buildroot}/usr/bin/pinentry
-pushd clr-build
-cp quazip1-qt5.pc  %{buildroot}/usr/lib64/pkgconfig/quazip.pc
-popd
+#pushd clr-build
+#cp quazip1-qt5.pc  %{buildroot}/usr/lib64/pkgconfig/quazip.pc
+#popd
 ## install_append end
 
 %files
@@ -151,7 +159,6 @@ popd
 /usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets.cmake
 /usr/lib64/libquazip1-qt5.so
-/usr/lib64/pkgconfig/quazip.pc
 /usr/lib64/pkgconfig/quazip1-qt5.pc
 
 %files lib

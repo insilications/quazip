@@ -1,4 +1,4 @@
 #install -m 0755 pinentry-wrapper %{buildroot}/usr/bin/pinentry
-pushd clr-build
-cp quazip1-qt5.pc  %{buildroot}/usr/lib64/pkgconfig/quazip.pc
-popd
+#pushd clr-build
+#cp quazip1-qt5.pc  %{buildroot}/usr/lib64/pkgconfig/quazip.pc
+#popd
