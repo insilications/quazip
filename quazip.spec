@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : quazip
 Version  : 20.08.05
-Release  : 10
+Release  : 11
 URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
 Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
 Summary  : No detailed summary available
@@ -66,7 +66,7 @@ unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1596643762
+export SOURCE_DATE_EPOCH=1596643954
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -168,7 +168,7 @@ unset no_proxy
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1596643762
+export SOURCE_DATE_EPOCH=1596643954
 rm -rf %{buildroot}
 pushd clr-build-special
 %make_install_special  || :
@@ -188,22 +188,22 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/quazip/quazip/JlCompress.h
-/usr/include/quazip/quazip/ioapi.h
-/usr/include/quazip/quazip/minizip_crypt.h
-/usr/include/quazip/quazip/quaadler32.h
-/usr/include/quazip/quazip/quachecksum32.h
-/usr/include/quazip/quazip/quacrc32.h
-/usr/include/quazip/quazip/quagzipfile.h
-/usr/include/quazip/quazip/quaziodevice.h
-/usr/include/quazip/quazip/quazip.h
-/usr/include/quazip/quazip/quazip_global.h
-/usr/include/quazip/quazip/quazipdir.h
-/usr/include/quazip/quazip/quazipfile.h
-/usr/include/quazip/quazip/quazipfileinfo.h
-/usr/include/quazip/quazip/quazipnewinfo.h
-/usr/include/quazip/quazip/unzip.h
-/usr/include/quazip/quazip/zip.h
+/usr/include/quazip/JlCompress.h
+/usr/include/quazip/ioapi.h
+/usr/include/quazip/minizip_crypt.h
+/usr/include/quazip/quaadler32.h
+/usr/include/quazip/quachecksum32.h
+/usr/include/quazip/quacrc32.h
+/usr/include/quazip/quagzipfile.h
+/usr/include/quazip/quaziodevice.h
+/usr/include/quazip/quazip.h
+/usr/include/quazip/quazip_global.h
+/usr/include/quazip/quazipdir.h
+/usr/include/quazip/quazipfile.h
+/usr/include/quazip/quazipfileinfo.h
+/usr/include/quazip/quazipnewinfo.h
+/usr/include/quazip/unzip.h
+/usr/include/quazip/zip.h
 /usr/lib64/cmake/quazip/quazipConfig.cmake
 /usr/lib64/cmake/quazip/quazipConfigVersion.cmake
 /usr/lib64/cmake/quazip/quazip_SharedTargets-relwithdebinfo.cmake
