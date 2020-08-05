@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : quazip
 Version  : 0.9
-Release  : 5
+Release  : 6
 URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
 Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-v0.9.zip
 Summary  : No detailed summary available
@@ -57,7 +57,7 @@ unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1596639962
+export SOURCE_DATE_EPOCH=1596640870
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,11 +113,17 @@ unset no_proxy
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1596639962
+export SOURCE_DATE_EPOCH=1596640870
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
 popd
+## install_append content
+#install -m 0755 pinentry-wrapper %{buildroot}/usr/bin/pinentry
+pushd clr-build
+cp quazip1-qt5.pc  %{buildroot}/usr/lib64/pkgconfig/quazip.pc
+popd
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -145,6 +151,7 @@ popd
 /usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/QuaZip-Qt5-1.0/QuaZip-Qt5_SharedTargets.cmake
 /usr/lib64/libquazip1-qt5.so
+/usr/lib64/pkgconfig/quazip.pc
 /usr/lib64/pkgconfig/quazip1-qt5.pc
 
 %files lib
