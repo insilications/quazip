@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : quazip
 Version  : 20.08.05
-Release  : 11
+Release  : 12
 URL      : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
 Source0  : file:///insilications/build/clearlinux/packages/quazip/quazip-20.08.05.zip
 Summary  : No detailed summary available
@@ -66,7 +66,7 @@ unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1596643954
+export SOURCE_DATE_EPOCH=1596655728
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -168,7 +168,7 @@ unset no_proxy
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1596643954
+export SOURCE_DATE_EPOCH=1596655728
 rm -rf %{buildroot}
 pushd clr-build-special
 %make_install_special  || :
