@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : quazip
 Version  : 1.1
-Release  : 14
+Release  : 15
 URL      : file:///aot/build/clearlinux/packages/quazip/quazip-v1.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/quazip/quazip-v1.1.tar.gz
 Summary  : No detailed summary available
@@ -66,7 +66,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622866482
+export SOURCE_DATE_EPOCH=1622869069
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -130,7 +130,8 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-%cmake .. -DBUILD_SHARED_LIBS=1
+%cmake .. -DBUILD_SHARED_LIBS=ON \
+-DQUAZIP_ENABLE_TESTS=ON
 make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
 
 make %{?_smp_mflags} check || :
@@ -144,7 +145,8 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-%cmake .. -DBUILD_SHARED_LIBS=1
+%cmake .. -DBUILD_SHARED_LIBS=ON \
+-DQUAZIP_ENABLE_TESTS=OFF
 make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
 fi
 popd
@@ -211,7 +213,8 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-%cmake .. -DBUILD_SHARED_LIBS=0
+%cmake .. -DBUILD_SHARED_LIBS=OFF \
+-DQUAZIP_ENABLE_TESTS=ON
 make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
 
 make %{?_smp_mflags} check || :
@@ -225,7 +228,8 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-%cmake .. -DBUILD_SHARED_LIBS=0
+%cmake .. -DBUILD_SHARED_LIBS=OFF \
+-DQUAZIP_ENABLE_TESTS=OFF
 make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
 fi
 popd
@@ -239,7 +243,7 @@ export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1622866482
+export SOURCE_DATE_EPOCH=1622869069
 rm -rf %{buildroot}
 pushd clr-build-special
 %make_install_special  || :
@@ -259,37 +263,37 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/QuaZip-Qt5-1.1/quazip/JlCompress.h
-/usr/include/QuaZip-Qt5-1.1/quazip/ioapi.h
-/usr/include/QuaZip-Qt5-1.1/quazip/minizip_crypt.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quaadler32.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quachecksum32.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quacrc32.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quagzipfile.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quaziodevice.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazip.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazip_global.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazip_qt_compat.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazipdir.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazipfile.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazipfileinfo.h
-/usr/include/QuaZip-Qt5-1.1/quazip/quazipnewinfo.h
-/usr/include/QuaZip-Qt5-1.1/quazip/unzip.h
-/usr/include/QuaZip-Qt5-1.1/quazip/zip.h
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5Config.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5ConfigVersion.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5_SharedTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5_SharedTargets.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5_StaticTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/QuaZip-Qt5-1.1/QuaZip-Qt5_StaticTargets.cmake
-/usr/lib64/libquazip1-qt5.so
+/usr/include/quazip/quazip/JlCompress.h
+/usr/include/quazip/quazip/ioapi.h
+/usr/include/quazip/quazip/minizip_crypt.h
+/usr/include/quazip/quazip/quaadler32.h
+/usr/include/quazip/quazip/quachecksum32.h
+/usr/include/quazip/quazip/quacrc32.h
+/usr/include/quazip/quazip/quagzipfile.h
+/usr/include/quazip/quazip/quaziodevice.h
+/usr/include/quazip/quazip/quazip.h
+/usr/include/quazip/quazip/quazip_global.h
+/usr/include/quazip/quazip/quazip_qt_compat.h
+/usr/include/quazip/quazip/quazipdir.h
+/usr/include/quazip/quazip/quazipfile.h
+/usr/include/quazip/quazip/quazipfileinfo.h
+/usr/include/quazip/quazip/quazipnewinfo.h
+/usr/include/quazip/quazip/unzip.h
+/usr/include/quazip/quazip/zip.h
+/usr/lib64/cmake/quazip/quazipConfig.cmake
+/usr/lib64/cmake/quazip/quazipConfigVersion.cmake
+/usr/lib64/cmake/quazip/quazip_SharedTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/quazip/quazip_SharedTargets.cmake
+/usr/lib64/cmake/quazip/quazip_StaticTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/quazip/quazip_StaticTargets.cmake
+/usr/lib64/libquazip.so
 /usr/lib64/pkgconfig/quazip1-qt5.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libquazip1-qt5.so.1.0.0
-/usr/lib64/libquazip1-qt5.so.1.1
+/usr/lib64/libquazip.so.1.0.0
+/usr/lib64/libquazip.so.1.1
 
 %files staticdev
 %defattr(-,root,root,-)
-/usr/lib64/libquazip1-qt5.a
+/usr/lib64/libquazip.a
